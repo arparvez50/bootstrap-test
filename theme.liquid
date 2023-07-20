@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    {% for block in section.blocks %}
+      <div class="col">
+        <h2>{{ block.settings.custom_text }}</h2>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Section",
+  "settings": [],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "custom_block",
+      "name": "Custom Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_text",
+          "label": "Enter Custom Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+      {
+            "name": "Custom Preset"
+      }
+  ]
+}
+{% endschema %}
+
+{{ section 'custom-section' }}
